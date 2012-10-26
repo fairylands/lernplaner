@@ -20,13 +20,6 @@ class TimetableController {
     def insertnewsubject = {
 
 
-
-
-
-
-
-
-
         def staticAuthor = "Anonymus"
         def staticContent = "Hello World"
         [author: staticAuthor, content: staticContent]
