@@ -10,6 +10,15 @@ class TimetableController {
     }
 
     def insertnewsubject = {
+
+
+
+
+
+
+
+
+
         def staticAuthor = "Anonymus"
         def staticContent = "Hello World"
         [author: staticAuthor, content: staticContent]
@@ -21,6 +30,23 @@ class TimetableController {
     }
 
     def deletesubject(){
+
+    }
+
+    def safenewsubject(Subject subject){   //neues Subject und Werte werden automatisch eingefüllt
+
+        //def subject = new  Subject(params)
+
+        if (!subject.save()){
+
+            printf("Fehler")
+            println subject.errors
+
+        }
+
+
+        redirect(action: 'timetable')
+
 
     }
 }
