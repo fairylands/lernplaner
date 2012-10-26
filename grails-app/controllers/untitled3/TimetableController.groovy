@@ -2,6 +2,14 @@ package untitled3
 
 class TimetableController {
 
+    def beforeInterceptor = {
+
+        if(session.user == null) {
+
+            redirect(controller: 'login', action: 'doLogin')
+        }
+    }
+
     def index(){
         redirect(action:   'timetable')
     }

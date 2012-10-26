@@ -78,6 +78,7 @@
 </g:form>
 <q>${content}</q>
 <p>${author}</p>
+<p>${session.user}</p>
 
 </body>
 </html>

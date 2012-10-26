@@ -2,6 +2,14 @@ package untitled3
 
 class HomeController {
 
+    def beforeInterceptor = {
+
+        if(session.user == null) {
+
+            redirect(controller: 'login', action: 'doLogin')
+        }
+    }
+
     boolean login = true;
 
     def index() {
