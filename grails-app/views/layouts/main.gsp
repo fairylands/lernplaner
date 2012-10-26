@@ -42,7 +42,7 @@
                     <img src="${resource(dir: 'images', file: 'lernplan-icon-kl.png')}" alt=""/>
                     Lernplan
                 </g:link>
-                <g:link controller="login" class="button">Logout</g:link>
+                <g:link controller="login" action="login" class="button">Logout</g:link>
 
 
             </div>

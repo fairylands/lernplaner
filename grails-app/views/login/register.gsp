@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="notLoggedIn"/>
 
 </head>
 
@@ -38,3 +38,15 @@
     </tr>
 
 </table>
+
+<br>
+
+
+<g:link controller="login" action="login" class="button">
+
+    Zum Login
+
+</g:link>
+
+<br>
+<br>
