@@ -2,29 +2,25 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Lernplaner</title>
 
-	</head>
+
+
+    </head>
+
+
+
+
+
 	<body>
-    Lernplaner Startseite
 
-    <br>
-    Login
-    <br>
-    Registrieren
-    <br>
-    <a href="timetable.gsp">Stundenplan</a>
-    <br>
-    <a href="learningplan.gsp">Lernplan</a>
-    <br>
-    Logout
+    <g:link controller="login" action="login">
+        Login
+    </g:link>
 
+    <g:link controller="login" action="register">
+        Registrieren
+    </g:link>
 
-    <br>
-
-    <br>
-
-    Anzeige des aktuellen Stundenplans
 
 	</body>
 </html>

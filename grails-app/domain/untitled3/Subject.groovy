@@ -7,7 +7,7 @@ class Subject {
     String typeOfExam
 
     static hasMany = [term:Term]
-    static mappedBy = [term: "starttime"]
+
 
 
 

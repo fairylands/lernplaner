@@ -6,7 +6,7 @@ class Likes {
     Integer priority
 
     static hasMany = [term:Term]
-    static mappedBy = [term: "starttime"]
+
 
 
 
