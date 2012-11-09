@@ -7,6 +7,12 @@ class TimetableController {
         if(session.user == null) {
 
             redirect(controller: 'login', action: 'doLogin')
+            return false
+        }
+
+        if(!session.user.isAttached()) {
+
+            session.user.attach()
         }
     }
 
@@ -18,7 +24,6 @@ class TimetableController {
     }
 
     def insertnewsubject = {
-
 
         def staticAuthor = "Anonymus"
         def staticContent = "Hello World"

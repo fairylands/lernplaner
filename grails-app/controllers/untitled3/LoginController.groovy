@@ -16,9 +16,11 @@ class LoginController {
 
         flash.message = ""
 
-        if(params.loginname == "admin" && params.password == "123456") {
+        def tmp = User.findByLoginnameAndPassword(params.loginname, params.password)
 
-            session.user = "admin"
+        if(tmp) {
+
+            session.user = tmp
             redirect(controller: 'home')
 
         } else {
@@ -39,6 +41,17 @@ class LoginController {
 
     def register(){
 
+    }
 
+
+    def doRegistration = {
+
+        def var = getParams()
+        render var.pren
+        new User(prename: "Hanne", surname: "Nobis", loginname: "hanne", password: "123", course: tinf, likes: [sport]).save(flush: true)
+
+        //render Term.list()
+        //render "<br>"
+        //render User.list()
     }
 }

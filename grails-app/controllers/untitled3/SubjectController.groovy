@@ -7,6 +7,12 @@ class SubjectController {
         if(session.user == null) {
 
             redirect(controller: 'login', action: 'doLogin')
+            return false
+        }
+
+        if(!session.user.isAttached()) {
+
+            session.user.attach()
         }
     }
 

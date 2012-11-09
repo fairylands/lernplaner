@@ -17,5 +17,12 @@ class User {
 
 
     static constraints = {
+
+        likes(nullable: true)
+    }
+
+    String toString()
+    {
+        prename + " " + surname
     }
 }
