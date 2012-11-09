@@ -14,5 +14,6 @@ class Subject {
 
     static constraints = {
 
+        professor(nullable: true)
     }
 }

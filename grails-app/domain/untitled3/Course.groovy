@@ -16,4 +16,9 @@ class Course {
         speaker2(nullable: true)
 
     }
+
+    String toString()
+    {
+        coursename
+    }
 }
