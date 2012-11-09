@@ -67,9 +67,8 @@ Tabelle mit Fachübersicht ${flash.message}
                     <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
                 </g:link>
 
-                <g:link controller="timetable" action="deletesubject" id="${it.id}">
-                    <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild"/>
-                </g:link>
+                <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="timetable" action="deletesubject" id="${it.id}"/>'}"/>
+
             </td>
 
         </tr>
