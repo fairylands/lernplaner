@@ -67,19 +67,24 @@ Tabelle mit Fachübersicht
         <tr>
             <td class="tablehead">Fach</td>
             <td class="tablehead">Dozent</td>
-            <td class="tablehead">Zeiten</td>
             <td class="tablehead">Prüfungsart</td>
             <td class="tablehead">Änderungen</td>
 
         </tr>
+
+
+    <g:each in="${subjects}">
+
+
+
         <tr>
-            <td>Mathe</td>
-            <td>Kick</td>
-            <td>Donnerstag</td>
-            <td>Klausur</td>
+            <td>${it.subjectname}</td>
+            <td>${it.professor.profname}</td>
+
+            <td>${it.typeOfExam}</td>
 
             <td>
-                <g:link controller="timetable" action="editsubject">
+                <g:link controller="timetable" action="editsubject" id="${it.id}">
                     <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
                 </g:link>
 
@@ -89,11 +94,13 @@ Tabelle mit Fachübersicht
             </td>
 
         </tr>
+    </g:each>
+
         <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+
             <td>
                 <g:link controller="timetable" action="insertnewsubject">
                     <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
