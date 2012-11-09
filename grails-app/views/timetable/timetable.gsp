@@ -34,25 +34,7 @@ Tabelle mit Stundenplan
             <td></td>
 
         </tr>
-        <tr>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
 
 
 
@@ -80,7 +62,6 @@ Tabelle mit Fachübersicht
         <tr>
             <td>${it.subjectname}</td>
             <td>${it.professor.profname}</td>
-
             <td>${it.typeOfExam}</td>
 
             <td>

@@ -8,4 +8,5 @@ class Professor {
 
     static constraints = {
     }
+
 }

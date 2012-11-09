@@ -24,58 +24,57 @@
     <tr>
         <td> Fach </td>
         <td>
-            <g:field name="subjectname" type="text"/>
+            <g:field name="subjectname" type="text" required=""/>
         </td>
     </tr>
     <tr>
         <td> Dozent </td>
         <td>
-            <g:field name="professor" type="text" />
+            <g:field name="profname" type="text" required=""/>
 
         </td>
     </tr>
     <tr>
         <td> Präsenzstunden </td>
         <td>
-            <g:field name="hours" type="number" step="1" min="0"/>
+            <g:field name="hours" type="number" step="1" min="0" required=""/>
         </td>
     </tr>
     <tr>
         <td> Selbststudium </td>
         <td>
-            <g:field name="selfstudy" type="number" step="1" min="0"/>
+            <g:field name="selfstudy" type="number" step="1" min="0" required=""/>
         </td>
     </tr>
     <tr>
         <td> Modulname </td>
         <td>
-            <g:field name="modul" type="text"/>
+            <g:field name="modul" type="text" required=""/>
         </td>
     </tr>
     <tr>
         <td> Prüfungsform </td>
         <td>
-            <g:field name="typeOfExam" type="text"/>
+            <g:field name="typeOfExam" type="text" required=""/>
         </td>
     </tr>
     <tr>
         <td> Credit Points </td>
         <td>
-            <g:field name="creditpoints" type="number" step="1" min="0"/>
+            <g:field name="creditpoints" type="number" step="1" min="0" required=""/>
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            <g:actionSubmit value="Abbrechen" onclick="return confirm('Abbrechen und alle Eingaben verlieren?')" />
+            <input type="button" value="Abbrechen" onclick="if(confirm('Abbrechen und alle Eingaben verlieren?')){ document.location.href='<g:createLink controller="timetable" action="timetable"/>'}"/>
             <g:actionSubmit controller="timetable" action="safenewsubject" value="Speichern"/>
         </td>
     </tr>
 
 </table>
 </g:form>
-<q>${content}</q>
-<p>${author}</p>
+
 <p>${session.user}</p>
 
 </body>
