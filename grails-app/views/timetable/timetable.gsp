@@ -57,8 +57,6 @@ Tabelle mit Fachübersicht
 
     <g:each in="${subjects}">
 
-
-
         <tr>
             <td>${it.subjectname}</td>
             <td>${it.professor.profname}</td>

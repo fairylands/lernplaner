@@ -50,14 +50,30 @@ class BootStrap {
                 we.save(flush: true)
 
         //Professors:
-        new Professor(profname: "Beahnisch", subject: [ra]).save(flush: true)
-        new Professor(profname: "Griesinger", subject: [bs]).save(flush: true)
-        new Professor(profname: "Hermanns", subject: [db]).save(flush: true)
-        new Professor(profname: "Nitsche-Ruhland", subject: [swe]).save(flush: true)
-        new Professor(profname: "Schwinn", subject: [fsa]).save(flush: true)
-        new Professor(profname: "Windholz", subject: [nt]).save(flush: true)
-        new Professor(profname: "Kick", subject: [ma]).save(flush: true)
-        new Professor(profname: "Klein", subject: [we]).save(flush: true)
+        def baeh = new Professor(profname: "Baehnisch", subject: [ra])
+                baeh.save(flush: true)
+                ra.professor = baeh
+        def grie = new Professor(profname: "Griesinger", subject: [bs])
+                grie.save(flush: true)
+                bs.professor = grie
+        def herm = new Professor(profname: "Hermanns", subject: [db])
+                herm.save(flush: true)
+                db.professor = herm
+        def nits = new Professor(profname: "Nitsche-Ruhland", subject: [swe])
+                nits.save(flush: true)
+                swe.professor = nits
+        def schw = new Professor(profname: "Schwinn", subject: [fsa])
+                schw.save(flush: true)
+                fsa.professor =schw
+        def wind = new Professor(profname: "Windholz", subject: [nt])
+                wind.save(flush: true)
+                nt.professor = wind
+        def kick = new Professor(profname: "Kick", subject: [ma])
+                kick.save(flush: true)
+                ma.professor = kick
+        def klei = new Professor(profname: "Klein", subject: [we])
+                klei.save(flush: true)
+                we.professor = klei
 
         //Course:
         def tinf = new Course(coursename: "TINF11B", subject: [ra, bs, db, swe, fsa, nt, ma, we])

@@ -11,7 +11,9 @@
 
 <body>
 
- HOME
+ HOME <br> <br>
+
+<p>Willkommen ${session.user.prename}</p>
 
 
 </body>
