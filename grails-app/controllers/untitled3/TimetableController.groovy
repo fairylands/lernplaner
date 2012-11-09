@@ -38,8 +38,13 @@ class TimetableController {
 
     }
 
-    def deletesubject() {
+    def deletesubject(int id) {
 
+        def subject = Subject.get(id)
+        subject.delete(flush: true)
+        flash.message = " - " + subject.subjectname + " gelöscht."
+        redirect(action: "timetable")
+        return false
     }
 
     def safenewsubject() {   //neues Subject und Werte werden automatisch eingefüllt

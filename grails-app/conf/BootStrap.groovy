@@ -32,25 +32,25 @@ class BootStrap {
                 pi.save(flush: true)
 
         //Subjects:
-        def ra = new Subject(subjectname: "Rechnerarchitekturen", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo1])
+        def ra = new Subject(subjectname: "Rechnerarchitekturen", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo1])
                 ra.save(flush: true)
-        def bs = new Subject(subjectname: "Betriebssysteme", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo2])
+        def bs = new Subject(subjectname: "Betriebssysteme", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo2])
                 bs.save(flush: true)
         def db = new Subject(subjectname: "Datenbanken", typeOfExam: "keine", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [di1])
                 db.save(flush: true)
         def swe = new Subject(subjectname: "Softwareengineering", typeOfExam: "Projekt", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [di2, mi1])
                 swe.save(flush: true)
-        def fsa = new Subject(subjectname: "Formale Sprachen und Automaten", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mi2, fr1])
+        def fsa = new Subject(subjectname: "Formale Sprachen und Automaten", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mi2, fr1])
                 fsa.save(flush: true)
-        def nt = new Subject(subjectname: "Netztechnik", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
+        def nt = new Subject(subjectname: "Netztechnik", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
                 nt.save(flush: true)
-        def ma = new Subject(subjectname: "Rechnerarchitekturen", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
+        def ma = new Subject(subjectname: "Mathe", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
                 ma.save(flush: true)
-        def we = new Subject(subjectname: "Webengineering", typeOfExam: "Pruefung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [fr2])
+        def we = new Subject(subjectname: "Webengineering", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [fr2])
                 we.save(flush: true)
 
         //Professors:
-        def baeh = new Professor(profname: "Baehnisch", subject: [ra])
+        def baeh = new Professor(profname: "Bähnisch", subject: [ra])
                 baeh.save(flush: true)
                 ra.professor = baeh
         def grie = new Professor(profname: "Griesinger", subject: [bs])

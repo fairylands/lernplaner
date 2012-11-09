@@ -43,7 +43,7 @@ Tabelle mit Stundenplan
 
 </div>
 <div id="termtable">
-Tabelle mit Fachübersicht
+Tabelle mit Fachübersicht ${flash.message}
 
     <table class="table">
         <tr>
@@ -67,7 +67,7 @@ Tabelle mit Fachübersicht
                     <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
                 </g:link>
 
-                <g:link controller="timetable" action="deletesubject">
+                <g:link controller="timetable" action="deletesubject" id="${it.id}">
                     <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild"/>
                 </g:link>
             </td>
@@ -92,6 +92,7 @@ Tabelle mit Fachübersicht
 
 
     </table>
+
 
 </div>
 
