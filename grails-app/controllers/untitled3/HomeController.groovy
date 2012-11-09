@@ -14,16 +14,11 @@ class HomeController {
 
     def index() {
 
-
-
-
-        //Überprüfung ob der User eingeloggt ist
+//Überprüfung ob der User eingeloggt ist
         if(login==true){
-            //wenn ja, dann sollt die Hauptseite aufgerufen werden
-            redirect(action:  'home')
+//wenn ja, dann sollt die Hauptseite aufgerufen werden
+            redirect(action: 'home')
             render "Login erfolgreich"
-
-
 
         }else{
 
@@ -33,24 +28,15 @@ class HomeController {
 
             [answer: answer ]
 
-
-
-
         }
 
     }
 
-
-
     def home(){
-
-
-
 
     }
 
     def login(){
-
 
     }
 }
