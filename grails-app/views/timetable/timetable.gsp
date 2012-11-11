@@ -90,10 +90,11 @@ Tabelle mit Fachübersicht
 
         </tr>
 
-
-
-
     </table>
+
+    <g:if test="${flash.message}">
+        ${flash.message}
+    </g:if >
 
 </div>
 

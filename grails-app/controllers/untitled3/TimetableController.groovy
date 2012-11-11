@@ -64,6 +64,8 @@ class TimetableController {
         professor.addToSubject(subject)
         professor.save()
 
+        flash.message = "Änderungen gespeichert!"
+
         redirect(action: 'timetable')
     }
 }
