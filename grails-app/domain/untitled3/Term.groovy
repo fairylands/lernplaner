@@ -10,5 +10,7 @@ class Term {
     static belongsTo = [subject: Subject]
 
     static constraints = {
+
+        subject(nullable: true) //Weil es ja auch Terms gibt, die zu einem Like gehören
     }
 }
