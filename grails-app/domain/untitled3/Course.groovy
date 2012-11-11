@@ -12,6 +12,7 @@ class Course {
 
     static constraints = {
 
+        subject(nullable: true)
         speaker1(nullable: true)
         speaker2(nullable: true)
 
