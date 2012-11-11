@@ -10,7 +10,7 @@ class Subject {
     Integer creditpoints
 
     static belongsTo = [professor: Professor]
-    static hasMany = [term:Term]
+    static hasMany = [term: Term]
 
     static constraints = {
 

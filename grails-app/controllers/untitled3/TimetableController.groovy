@@ -79,12 +79,12 @@ class TimetableController {
         professor.save()
 
         int i;
-
-        println(params)
+        def term;
 
         for (i=0; i < params.dayOfWeek.size(); i++){
-            subject.addToTerm(new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i], endtime: params.endtime[i], duration: params.duration[i] ))
-
+            println(params.dayOfWeek.size())
+            term = new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i], endtime: params.endtime[i], duration: params.duration[i] )
+            subject.addToTerm(term)
         }
 
 
