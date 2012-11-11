@@ -43,7 +43,7 @@ Tabelle mit Stundenplan
 
 </div>
 <div id="termtable">
-Tabelle mit Fachübersicht
+Tabelle mit Fachübersicht ${flash.message}
 
     <table class="table">
         <tr>
@@ -57,8 +57,6 @@ Tabelle mit Fachübersicht
 
     <g:each in="${subjects}">
 
-
-
         <tr>
             <td>${it.subjectname}</td>
             <td>${it.professor.profname}</td>
@@ -69,9 +67,8 @@ Tabelle mit Fachübersicht
                     <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
                 </g:link>
 
-                <g:link controller="timetable" action="deletesubject">
-                    <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild"/>
-                </g:link>
+                <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="timetable" action="deletesubject" id="${it.id}"/>'}"/>
+
             </td>
 
         </tr>
@@ -90,11 +87,11 @@ Tabelle mit Fachübersicht
 
         </tr>
 
+
+
+
     </table>
 
-    <g:if test="${flash.message}">
-        ${flash.message}
-    </g:if >
 
 </div>
 

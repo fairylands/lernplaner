@@ -59,7 +59,7 @@
             <td></td>
             <td>
                 <g:actionSubmit controller="timetable" action="safenewsubject" value="Speichern"/>
-                <g:actionSubmit value="Abbrechen" onclick="return confirm('Abbrechen und alle Eingaben verlieren?')" />
+                <input type="button" value="Abbrechen" onclick="if(confirm('Abbrechen und alle Eingaben verlieren?')){ document.location.href='<g:createLink controller="timetable" action="timetable"/>'}"/>
 
             </td>
         </tr>

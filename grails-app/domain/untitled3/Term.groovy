@@ -2,8 +2,9 @@ package untitled3
 
 class Term {
 
-    Date starttime
-    Date endtime
+    String dayOfWeek
+    float starttime
+    float endtime
     float duration
 
     static constraints = {

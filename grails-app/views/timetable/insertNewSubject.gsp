@@ -14,7 +14,7 @@
 
 
 <body>
-<g:form>
+<g:form >
 <table>
 
     <h1> Neues Fach eintragen: </h1>
@@ -73,8 +73,6 @@
     </tr>
 
 </table>
-
-
 </g:form>
 
 <p>${session.user}</p>

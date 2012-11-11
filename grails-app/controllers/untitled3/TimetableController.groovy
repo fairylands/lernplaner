@@ -7,6 +7,12 @@ class TimetableController {
         if (session.user == null) {
 
             redirect(controller: 'login', action: 'doLogin')
+            return false
+        }
+
+        if(!session.user.isAttached()) {
+
+            session.user.attach()
         }
     }
 
@@ -20,7 +26,6 @@ class TimetableController {
 
     def insertnewsubject = {
 
-
         def staticAuthor = "Anonymus"
         def staticContent = "Hello World"
         [author: staticAuthor, content: staticContent]
@@ -33,8 +38,13 @@ class TimetableController {
 
     }
 
-    def deletesubject() {
+    def deletesubject(int id) {
 
+        def subject = Subject.get(id)
+        subject.delete(flush: true)
+        flash.message = " - " + subject.subjectname + " gelöscht."
+        redirect(action: "timetable")
+        return false
     }
 
     def safenewsubject() {   //neues Subject und Werte werden automatisch eingefüllt
