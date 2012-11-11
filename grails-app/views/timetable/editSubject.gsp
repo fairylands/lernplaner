@@ -2,74 +2,84 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-
 </head>
+
 <body>
-<g:form controller="timetable" action="safenewsubject" id="${subject.id}">
-    <table>
+    <g:form controller="timetable" action="safenewsubject" id="${subject.id}">
+        <div id="timetable">
 
-        <h1>Fach bearbeiten: </h1>
+            <table>
+                <h1>Fach bearbeiten: </h1>
+                <tr>
+                    <td> Fach </td>
+                    <td> <g:field name="subjectname" type="text" value="${subject.subjectname}" required=""/> </td>
+                </tr>
 
+                <tr>
+                    <td> Dozent </td>
+                    <td> <g:field name="profname" type="text" value="${subject.professor.profname}" required="" /> </td>
+                </tr>
 
-        <!-- folgende Inhalte später via DB generieren (relevante Spalten, Datentypen) -->
-        <tr>
-            <td> Fach </td>
-            <td>
-                <g:field name="subjectname" type="text" value="${subject.subjectname}"/>
-            </td>
-        </tr>
-        <tr>
-            <td> Dozent </td>
-            <td>
-                <g:field name="profname" type="text" value="${subject.professor.profname}" />
+                <tr>
+                    <td> Präsenzstunden </td>
+                    <td> <g:field name="hours" type="number" step="1" min="0" value="${subject.hours}" required=""/> </td>
+                </tr>
 
-            </td>
-        </tr>
-        <tr>
-            <td> Präsenzstunden </td>
-            <td>
-                <g:field name="hours" type="number" step="1" min="0" value="${subject.hours}"/>
-            </td>
-        </tr>
-        <tr>
-            <td> Selbststudium </td>
-            <td>
-                <g:field name="selfstudy" type="number" step="1" min="0" value="${subject.selfstudy}"/>
-            </td>
-        </tr>
-        <tr>
-            <td> Modulname </td>
-            <td>
-                <g:field name="modul" type="text" value="${subject.modul}"/>
-            </td>
-        </tr>
-        <tr>
-            <td> Prüfungsform </td>
-            <td>
-                <g:field name="typeOfExam" type="text" value="${subject.typeOfExam}"/>
-            </td>
-        </tr>
-        <tr>
-            <td> Credit Points </td>
-            <td>
-                <g:field name="creditpoints" type="number" step="1" min="0" value="${subject.creditpoints}"/>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <g:actionSubmit controller="timetable" action="safenewsubject" value="Speichern"/>
-                <input type="button" value="Abbrechen" onclick="if(confirm('Abbrechen und alle Eingaben verlieren?')){ document.location.href='<g:createLink controller="timetable" action="timetable"/>'}"/>
+                <tr>
+                    <td> Selbststudium </td>
+                    <td> <g:field name="selfstudy" type="number" step="1" min="0" value="${subject.selfstudy}" required=""/> </td>
+                </tr>
 
-            </td>
-        </tr>
+                <tr>
+                    <td> Modulname </td>
+                    <td> <g:field name="modul" type="text" value="${subject.modul}" required=""/> </td>
+                </tr>
 
-    </table>
+                <tr>
+                    <td> Prüfungsform </td>
+                    <td> <g:field name="typeOfExam" type="text" value="${subject.typeOfExam}" required=""/> </td>
+                </tr>
 
+                <tr>
+                    <td> Credit Points </td>
+                    <td>  <g:field name="creditpoints" type="number" step="1" min="0" value="${subject.creditpoints}" required=""/> </td>
+                </tr>
+            </table>
 
-</g:form>
+        <br>
+        <p>${session.user}</p>
+        <g:actionSubmit controller="timetable" action="safenewsubject" value="Speichern"/>
+        <input type="button" value="Abbrechen" onclick="if(confirm('Abbrechen und alle Änderungen verlieren?')){ document.location.href='<g:createLink controller="timetable" action="timetable"/>'}"/>
 
-<p>${session.user}</p>
+        </div>
+        <div id="termtable">
+
+            <table class="table">
+                <h1> Zeiten eintragen: </h1>
+                <tr>
+                    <td class="tablehead">Wochentag</td>
+                    <td class="tablehead">Beginn</td>
+                    <td class="tablehead">Ende</td>
+                    <td class="tablehead">Dauer</td>
+                </tr>
+
+                <g:each in="${terms}">
+                    <tr>
+                        <td><g:field name="modul" type="text" class="eingabefeldwochentag" value="${it.dayOfWeek}" /></td>
+                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.starttime}"/></td>
+                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.endtime}"/></td>
+                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.duration}"/></td>
+                    </tr>
+                </g:each>
+            </table>
+
+        <br>
+        <a onclick="plusZeile()">
+            <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
+        </a>
+        </div>
+    </g:form>
+
 
 </body>
 </html>

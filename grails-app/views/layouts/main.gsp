@@ -59,9 +59,10 @@
 
 
 
-
+       <jq:resources />
 		<g:javascript library="application"/>
 		<r:layoutResources />
+
 
         </div>
 	</body>

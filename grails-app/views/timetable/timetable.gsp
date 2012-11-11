@@ -50,7 +50,7 @@ Tabelle mit Fachübersicht ${flash.message}
             <td class="tablehead">Fach</td>
             <td class="tablehead">Dozent</td>
             <td class="tablehead">Prüfungsart</td>
-            <td class="tablehead">Änderungen</td>
+            <td class="tablehead"></td>
 
         </tr>
 
