@@ -41,6 +41,15 @@ td {
 
 }
 
+.eingabefeldwochentag {
+    width: 95px;
+
+}
+.eingabefeld {
+    width: 90px;
+
+}
+
 .red {
     color:red;
 }

@@ -34,20 +34,30 @@ class BootStrap {
         //Subjects:
         def ra = new Subject(subjectname: "Rechnerarchitekturen", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo1])
                 ra.save(flush: true)
+                mo1.subject = ra
         def bs = new Subject(subjectname: "Betriebssysteme", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo2])
                 bs.save(flush: true)
+                mo2.subject = bs
         def db = new Subject(subjectname: "Datenbanken", typeOfExam: "keine", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [di1])
                 db.save(flush: true)
+                di1.subject = db
         def swe = new Subject(subjectname: "Softwareengineering", typeOfExam: "Projekt", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [di2, mi1])
                 swe.save(flush: true)
+                di2.subject = swe
+                mi1.subject = swe
         def fsa = new Subject(subjectname: "Formale Sprachen und Automaten", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mi2, fr1])
                 fsa.save(flush: true)
+                mi2.subject = fsa
+                fr1.subject = fsa
         def nt = new Subject(subjectname: "Netztechnik", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
                 nt.save(flush: true)
+                do1.subject = nt
         def ma = new Subject(subjectname: "Mathe", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
                 ma.save(flush: true)
+                do1.subject = ma
         def we = new Subject(subjectname: "Webengineering", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [fr2])
                 we.save(flush: true)
+                fr2.subject = we
 
         //Professors:
         def baeh = new Professor(profname: "Bähnisch", subject: [ra])
