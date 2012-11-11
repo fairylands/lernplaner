@@ -7,6 +7,8 @@ class Term {
     float endtime
     float duration
 
+    static belongsTo = Subject
+
     static constraints = {
     }
 }

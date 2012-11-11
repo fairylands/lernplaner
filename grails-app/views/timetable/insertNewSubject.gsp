@@ -64,10 +64,10 @@
                 </tr>
 
                 <tr>
-                    <td><g:field name="dayOfWeek[]" type="text" class="eingabefeldwochentag" reguired=""/></td>
-                    <td><g:field name="starttime[]" type="number" class="eingabefeld" reguired=""/></td>
-                    <td><g:field name="endtime[]" type="number" class="eingabefeld" reguired=""/></td>
-                    <td><g:field name="duration[]" type="number" class="eingabefeld" reguired=""/></td>
+                    <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" required=""/></td>
+                    <td><g:field name="starttime" type="number" class="eingabefeld" required=""/></td>
+                    <td><g:field name="endtime" type="number" class="eingabefeld" required=""/></td>
+                    <td><g:field name="duration" type="number" class="eingabefeld" required=""/></td>
                 </tr>
             </table>
 

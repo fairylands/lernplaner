@@ -58,6 +58,10 @@ class TimetableController {
             subject = new Subject(params)
         }
 
+
+
+
+
         def professor = Professor.findByProfname(params.profname)
 
         if (!professor) {
@@ -73,6 +77,16 @@ class TimetableController {
 
         professor.addToSubject(subject)
         professor.save()
+
+        int i;
+
+        println(params)
+
+        for (i=0; i < params.dayOfWeek.size(); i++){
+            subject.addToTerm(new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i], endtime: params.endtime[i], duration: params.duration[i] ))
+
+        }
+
 
         flash.message = "Änderungen gespeichert!"
 
