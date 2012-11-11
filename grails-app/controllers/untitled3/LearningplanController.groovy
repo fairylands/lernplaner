@@ -17,16 +17,13 @@ class LearningplanController {
     }
 
     def index() {
-
-
-           //if(login == true){
-
-                redirect(action:  'learningplan')
-
-           //}
-
+        redirect(action:  'learningplan')
     }
 
     def learningplan()  {}
 
+    def tw1()  {
+
+
+    }
 }

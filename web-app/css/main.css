@@ -130,6 +130,15 @@ h2 {
     overflow:hidden;
 }
 
+#theoriewoche{
+    width:740px;
+    position:absolute;
+    margin:auto;
+    padding:20px 5px;
+    padding-bottom: 5px;
+
+}
+
 #timetable{
     width:450px;
     height:64px;
