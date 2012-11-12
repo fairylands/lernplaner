@@ -26,12 +26,16 @@ Tabelle mit Stundenplan
         </tr>
         <tr>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="timetabletd">
+                <div class="rahmentd">
+                <div id="test">aaa</div>  </div>
+
+            </td>
+            <td class="rahmentd"></td>
+            <td class="rahmentd"></td>
+            <td class="rahmentd"></td>
+            <td class="rahmentd"></td>
+            <td class="rahmentd"></td>
 
         </tr>
 

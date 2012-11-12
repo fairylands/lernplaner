@@ -16,6 +16,11 @@
                 </tr>
 
                 <tr>
+                    <td> Kürzel </td>
+                    <td> <g:field name="kuerzel" type="text" value="${subject.kuerzel}" required=""/> </td>
+                </tr>
+
+                <tr>
                     <td> Dozent </td>
                     <td> <g:field name="profname" type="text" value="${subject.professor.profname}" required="" /> </td>
                 </tr>

@@ -3,6 +3,7 @@ package untitled3
 class Subject {
 
     String subjectname
+    String kuerzel
     String typeOfExam
     Integer hours
     Integer selfstudy

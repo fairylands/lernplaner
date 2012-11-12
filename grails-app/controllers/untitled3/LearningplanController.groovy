@@ -22,7 +22,7 @@ class LearningplanController {
 
     def learningplan()  {}
 
-    def tw1()  {
+    def theoriewoche()  {
 
 
     }

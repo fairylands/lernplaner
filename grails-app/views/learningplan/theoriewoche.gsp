@@ -1,12 +1,14 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <meta name="layout" content="theoriewoche"/>
+
+
 </head>
 <body>
 
+    <g:render template="theoriewocheTemplate">
 
-
+    </g:render>
 
 
 </body>
