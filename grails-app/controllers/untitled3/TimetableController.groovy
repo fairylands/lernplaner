@@ -36,6 +36,7 @@ class TimetableController {
         [subject: Subject.get(id)]
 
 
+
     }
 
     def deletesubject(int id) {
@@ -51,8 +52,19 @@ class TimetableController {
 
         def subject;
         if (params.id) {
+
             subject = Subject.get(params.id)
             subject.properties = params
+
+            def termlist=[]
+            subject.term.each {
+                termlist.add(it)
+            }
+            termlist.each {
+                subject.removeFromTerm(it)
+            }
+
+
         }
         else {
             subject = new Subject(params)

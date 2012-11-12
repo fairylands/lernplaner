@@ -68,12 +68,12 @@
                     <td class="tablehead">Dauer</td>
                 </tr>
 
-                <g:each in="${terms}">
+                <g:each in="${subject.term}">
                     <tr>
-                        <td><g:field name="modul" type="text" class="eingabefeldwochentag" value="${it.dayOfWeek}" /></td>
-                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.starttime}"/></td>
-                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.endtime}"/></td>
-                        <td><g:field name="modul" type="text" class="eingabefeld" value="${it.duration}"/></td>
+                        <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" value="${it.dayOfWeek}" /></td>
+                        <td><g:field name="starttime" type="text" class="eingabefeld" value="${it.starttime}"/></td>
+                        <td><g:field name="endtime" type="text" class="eingabefeld" value="${it.endtime}"/></td>
+                        <td><g:field name="duration" type="text" class="eingabefeld" value="${it.duration}"/></td>
                     </tr>
                 </g:each>
             </table>

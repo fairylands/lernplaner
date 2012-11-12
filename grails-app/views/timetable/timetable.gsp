@@ -28,8 +28,9 @@ Tabelle mit Stundenplan
 
             <td class="timetabletd">
                 <div class="rahmentd">
-                <div id="test">aaa</div>  </div>
 
+                    <div id="test">aaa</div>
+                </div>
             </td>
             <td class="rahmentd"></td>
             <td class="rahmentd"></td>
