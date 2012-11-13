@@ -68,7 +68,7 @@ Tabelle mit Fachübersicht ${flash.message}
         </tr>
 
 
-    <g:each in="${subjects}">
+    <g:each in="${untitled3.Subject.list()}">
 
         <tr>
             <td>${it.subjectname}</td>
