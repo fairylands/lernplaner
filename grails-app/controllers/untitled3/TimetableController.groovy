@@ -93,9 +93,12 @@ class TimetableController {
         int i;
         def term;
 
-        for (i=0; i < params.dayOfWeek.size(); i++){
-            println(params.dayOfWeek.size())
-            term = new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i].toFloat(), endtime: params.endtime[i].toFloat(), duration: params.duration[i].toFloat() )
+        def daysOfWeek = request.getParameterValues('dayOfWeek')
+        def starttime = request.getParameterValues('starttime')
+        def endtime = request.getParameterValues('endtime')
+
+        for (i=0; i < daysOfWeek.length; i++){
+            term = new Term(dayOfWeek: daysOfWeek[i], starttime: starttime[i].toFloat(), endtime: endtime[i].toFloat(), duration: endtime[i].toFloat()-starttime[i].toFloat() )
             subject.addToTerm(term)
         }
 

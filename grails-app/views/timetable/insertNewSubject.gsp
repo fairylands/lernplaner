@@ -6,7 +6,7 @@
 
 <body>
     <g:form controller="timetable" action="safenewsubject">
-        <div id="timetable">
+        <div id="neuesfach">
 
             <table>
                 <h1> Neues Fach eintragen: </h1>
@@ -65,14 +65,16 @@
                     <td class="tablehead">Wochentag</td>
                     <td class="tablehead">Beginn</td>
                     <td class="tablehead">Ende</td>
-                    <td class="tablehead">Dauer</td>
+
+                    <td class="tablehead breitezeitentd"></td>
                 </tr>
 
                 <tr>
                     <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" required=""/></td>
                     <td><g:field name="starttime" type="number" class="eingabefeld" required=""/></td>
                     <td><g:field name="endtime" type="number" class="eingabefeld" required=""/></td>
-                    <td><g:field name="duration" type="number" class="eingabefeld" required=""/></td>
+
+                    <td class="breitezeitentd"></td>
                 </tr>
             </table>
 

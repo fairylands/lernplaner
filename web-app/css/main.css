@@ -146,6 +146,8 @@ h2 {
 
 }
 
+
+
 .timetabletd{
    height: 200px;
     padding: 0 0 0 0;
@@ -168,10 +170,23 @@ h2 {
 }
 
 
-#zeiten{
+#neuesfach{
     width:450px;
+    height:64px;
+    float: left;
+
+}
+
+#zeiten{
+    width:550px;
     height:500px;
     float: right;
+
+
+}
+
+.breitezeitentd{
+    width: 20px;
 
 }
 

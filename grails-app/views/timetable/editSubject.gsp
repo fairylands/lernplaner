@@ -6,7 +6,7 @@
 
 <body>
     <g:form controller="timetable" action="safenewsubject" id="${subject.id}">
-        <div id="timetable">
+        <div id="neuesfach">
 
             <table>
                 <h1>Fach bearbeiten: </h1>
@@ -65,7 +65,8 @@
                     <td class="tablehead">Wochentag</td>
                     <td class="tablehead">Beginn</td>
                     <td class="tablehead">Ende</td>
-                    <td class="tablehead">Dauer</td>
+
+                    <td class="tablehead breitezeitentd"></td>
                 </tr>
 
                 <g:each in="${subject.term}">
@@ -73,7 +74,8 @@
                         <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" value="${it.dayOfWeek}" /></td>
                         <td><g:field name="starttime" type="text" class="eingabefeld" value="${it.starttime}"/></td>
                         <td><g:field name="endtime" type="text" class="eingabefeld" value="${it.endtime}"/></td>
-                        <td><g:field name="duration" type="text" class="eingabefeld" value="${it.duration}"/></td>
+
+                        <td class="breitezeitentd"></td>
                     </tr>
                 </g:each>
             </table>
