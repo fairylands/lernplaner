@@ -25,7 +25,7 @@ class TimetableController {
     }
 
     def timetable() {
-        [subjects: Subject.list()]
+
     }
 
     def insertnewsubject = {

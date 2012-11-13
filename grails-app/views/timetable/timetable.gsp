@@ -29,7 +29,7 @@ Tabelle mit Stundenplan
                 <td class="timetabletd">
                     <div class="rahmentd">
 
-                        <g:each in="${subjects}">
+                        <g:each in="${untitled3.Subject.list()}">
                             <g:each in="${it.term}" var="itterm">
                                 <g:if test="${itterm.dayOfWeek == ittag || itterm.dayOfWeek == ittag.substring(0,2)}">
 
