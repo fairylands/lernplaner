@@ -68,7 +68,7 @@
         <td>  </td>
         <td>  </td>
         <td>  </td>
-        <td> <input type="submit" value="Speichern"/> </td
+        <td> <input type="submit" value="Speichern"/> </td>
 
     </tr>
 </g:form>

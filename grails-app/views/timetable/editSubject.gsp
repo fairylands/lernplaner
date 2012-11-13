@@ -71,7 +71,7 @@
 
                 <g:each in="${subject.term}">
                     <tr>
-                        <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" value="${it.dayOfWeek}" /></td>
+                        <td><g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']}" class="eingabefeldwochentag" required=""/></td>
                         <td><g:field name="starttime" type="text" class="eingabefeld" value="${it.getStarttimeConverted()}"/></td>
                         <td><g:field name="endtime" type="text" class="eingabefeld" value="${it.getEndtimeConverted()}"/></td>
 

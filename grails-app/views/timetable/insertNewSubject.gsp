@@ -70,7 +70,7 @@
                 </tr>
 
                 <tr>
-                    <td><g:field name="dayOfWeek" type="text" class="eingabefeldwochentag" required=""/></td>
+                    <td><g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']}" class="eingabefeldwochentag" required=""/></td>
                     <td><g:field name="starttime" type="number" class="eingabefeld" required=""/></td>
                     <td><g:field name="endtime" type="number" class="eingabefeld" required=""/></td>
 
