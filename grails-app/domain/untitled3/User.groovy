@@ -12,17 +12,13 @@ class User {
     static hasMany = [likes:Likes]
 
 
-
-
-
-
     static constraints = {
 
         likes(nullable: true)
     }
 
-    String toString()
-    {
+    String toString() {
+
         prename + " " + surname
     }
 }

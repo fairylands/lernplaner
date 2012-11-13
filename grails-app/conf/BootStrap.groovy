@@ -18,8 +18,10 @@ class BootStrap {
 
         def sp = new Term(dayOfWeek: "Fr", starttime: 18.00, endtime: 20.00, duration: 2)
         sp.save(flush: true)
-        def pi = new Term(dayOfWeek: "Mi", starttime: 17.15, endtime: 18.45, duration: 1.5)
-        pi.save(flush: true)
+        def wga = new Term(dayOfWeek: "Mi", starttime: 17.15, endtime: 18.45, duration: 1.5)
+        wga.save(flush: true)
+        def nh = new Term(dayOfWeek: "Mi", starttime: 17.15, endtime: 18.45, duration: 1.5)
+        nh.save(flush: true)
 
         //Subjects:
         def ra = new Subject(subjectname: "Rechnerarchitekturen", kuerzel: "RA", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [mo1])
@@ -94,24 +96,23 @@ class BootStrap {
 
         //Likes:
         def sport = new Likes(likename: "Sport", priority: 5, term: [sp])
-        sport.save(flush: true)
-        def piano = new Likes(likename: "Klavier", priority: 3, term: [pi])
-        piano.save(flush: true)
+        sport.save(flush: true, failOnError: true)
+        def nachhilfe = new Likes(likename: "Nachhilfe", priority: 5, term: [nh])
+        nachhilfe.save(flush: true, failOnError: true)
+        def wgabend = new Likes(likename: "WG-Abend", priority: 3, term: [wga])
+        wgabend.save(flush: true, failOnError: true)
 
         //User:
-        def hanne = new User(prename: "Hanne", surname: "Nobis", loginname: "hanne", password: "123", course: tinf, likes: [sport])
+        def hanne = new User(prename: "Hanne", surname: "Nobis", loginname: "hanne", password: "123", course: tinf, likes: [sport, nachhilfe])
         hanne.save(flush: true)
-        def sophie = new User(prename: "Sophie", surname: "Eichhorn", loginname: "sophie", password: "321", course: tinf, likes: [piano])
+        def sophie = new User(prename: "Sophie", surname: "Eichhorn", loginname: "sophie", password: "321", course: tinf, likes: [wgabend])
         sophie.save(flush: true)
-        def ano = new User(prename: "Ano", surname: "Nymus", loginname: "anonymus", password: "111", course: tinf, likes: [sport, piano])
+        def ano = new User(prename: "Ano", surname: "Nymus", loginname: "anonymus", password: "111", course: tinf, likes: [sport])
         ano.save(flush: true)
 
         def tinfTemp = Course.get(tinf.id)
         tinfTemp.speaker1 = hanne
         tinfTemp.speaker2 = ano
-
-
-
 
 
     }

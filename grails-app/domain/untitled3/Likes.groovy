@@ -7,9 +7,11 @@ class Likes {
 
     static hasMany = [term:Term]
 
-
-
-
     static constraints = {
+    }
+
+    String toString() {
+
+        likename
     }
 }
