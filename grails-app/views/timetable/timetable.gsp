@@ -25,18 +25,26 @@ Tabelle mit Stundenplan
             <td class="tablehead">Samstag</td>
         </tr>
         <tr>
+            <g:each in="${["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]}" var="ittag">
+                <td class="timetabletd">
+                    <div class="rahmentd">
 
-            <td class="timetabletd">
-                <div class="rahmentd">
+                        <g:each in="${subjects}">
+                            <g:each in="${it.term}" var="itterm">
+                                <g:if test="${itterm.dayOfWeek == ittag || itterm.dayOfWeek == ittag.substring(0,2)}">
 
-                    <div id="test">aaa</div>
+                                <div id="test" style="">${it.kuerzel}</div>
+
+
+                            </g:if>
+                    </g:each>
+                </g:each>
+
+
                 </div>
             </td>
-            <td class="rahmentd"></td>
-            <td class="rahmentd"></td>
-            <td class="rahmentd"></td>
-            <td class="rahmentd"></td>
-            <td class="rahmentd"></td>
+
+            </g:each>
 
         </tr>
 
