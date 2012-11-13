@@ -1,5 +1,6 @@
 package untitled3
 
+
 class LikesController {
 
     static scaffold = true
@@ -59,22 +60,18 @@ class LikesController {
         def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: end, duration: params.getDouble('duration'))
             tmpTerm.save(flush: true)
 
-        //def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
-
         if (curUser.likes.likename.contains(params.likename)) {
 
             def tmpLike = Likes.findByLikename(params.likename)
 
-                tmpLike.priority = params.getDouble('priority')
-                tmpLike.addToTerm(tmpTerm)
+            tmpLike.priority = params.getDouble('priority')
+            tmpLike.addToTerm(tmpTerm)
         } else {
 
             def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
             tmpLike.save()           //Laesst sich nicht flushen
             curUser.addToLikes(tmpLike)
         }
-
-
 
 
         redirect (action: 'likes')
@@ -93,4 +90,20 @@ class LikesController {
         redirect(action: 'likes')
     }
 
+    def changeLike () {
+
+        redirect(uri: '/likes/likes?likename=' + params.name)
+    }
+
+    def checkFreeTime() {
+
+        def boolean time = true
+
+        return time
+    }
+
+    def changeterms () {
+
+
+    }
 }

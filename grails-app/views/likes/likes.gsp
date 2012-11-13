@@ -23,13 +23,17 @@
     <tr>
         <td>${it.likename}</td>
         <td>${it.priority}</td>
-        <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek}, ${t.starttime} - ${t.endtime} <br> </g:each></td>
+        <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek},
+            ${t.starttime}<g:if test="${(t.starttime%1) == 0 || (t.starttime%1) == 0.3 }">0</g:if>
+            - ${t.endtime}<g:if test="${(t.endtime%1) == 0 || (t.endtime%1) == 0.3 }">0</g:if>  <br> </g:each></td>
         <td>
-            <g:link controller="likes" action="updateLikes" params="[name: it.likename]">
-                <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
+            <g:link controller="likes" action="changeLike" params="[name: it.likename]">
+                <img src="${resource(dir: 'images', file: 'plus.png')}" title="Zeit hinzuf&uuml;gen" alt="bild"/>
             </g:link>
-
-            <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="likes" action="deleteLike" params="[name: it.likename]"/>'}"/>
+            <g:link controller="likes" action="changeterms" params="[name: it.likename]">
+                <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" title="Zeiten bearbeiten" alt="bild"/>
+            </g:link>
+            <input type="image" src="../images/loeschen.png" value="Löschen" title="Like l&ouml;schen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="likes" action="deleteLike" params="[name: it.likename]"/>'}"/>
 
         </td>
 
@@ -52,7 +56,7 @@
         <td> Dauer (in h) </td>
     </tr>
     <tr>
-        <td> <g:field name="likename" type="text" required=""/> </td>
+        <td> <g:field name="likename" type="text" value="${params.likename}" required=""/> </td>
         <td> <g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']}" required=""/> </td>
         <td> <g:select name="priority" from="${1..10}" required=""/> </td>
         <td> <g:select name="starttime" from="${starttimesList}" required=""/> </td>
