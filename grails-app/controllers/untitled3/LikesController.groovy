@@ -23,27 +23,74 @@ class LikesController {
         def curUser = User.findByLoginname(session.user.loginname)
         def tmpList = curUser.likes
 
-        [userlikesList: tmpList]
+        def times = [], durations = []
+
+        for (int i = 6; i<24; i++) {
+
+            times.add(i + ".00")
+            times.add(i + ".15")
+            times.add(i + ".30")
+            times.add(i + ".45")
+        }
+
+        times.add("24.00")
+
+        for (float i = 0.25; i<=8; i+=0.25) {durations.add(i)}
+
+        [userlikesList: tmpList, starttimesList: times , durationsList: durations]
     }
 
     def saveLike = {
 
         def curUser =  User.findByLoginname(session.user.loginname)
 
-        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: (params.getDouble('starttime') + params.getDouble('duration')), duration: params.getDouble('duration'))
+        def double end
+
+        end = params.getDouble('starttime') + (params.getDouble('duration') - (params.getDouble('duration')%1))
+
+        switch (params.getDouble('duration')%1) {
+
+            case 0.25: end += 0.15; break;
+            case 0.5: end += 0.30; break;
+            case 0.75: end += 0.45; break;
+        }
+
+
+        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: end, duration: params.getDouble('duration'))
             tmpTerm.save(flush: true)
 
-        def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
+        //def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
 
         if (curUser.likes.likename.contains(params.likename)) {
 
+            def tmpLike = Likes.findByLikename(params.likename)
+
+                tmpLike.priority = params.getDouble('priority')
+                tmpLike.addToTerm(tmpTerm)
+        } else {
+
+            def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
+            tmpLike.save()           //Laesst sich nicht flushen
+            curUser.addToLikes(tmpLike)
         }
 
-        tmpLike.save()           //LÃƒÂ¤sst sich nicht flushen
 
-            curUser.addToLikes(tmpLike)
+
 
         redirect (action: 'likes')
 
     }
+
+    def deleteLike () {
+
+        def tmpLike = Likes.findByLikename(params.name)
+        def curUser = User.findByLoginname(session.user.loginname)
+
+        curUser.removeFromLikes(tmpLike)
+
+        flash.message = "Like entfernt."
+
+        redirect(action: 'likes')
+    }
+
 }

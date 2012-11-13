@@ -21,7 +21,7 @@
         </tr>
         <tr>
 
-            <g:each in="${["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]}" var="ittag">
+            <g:each in="${["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]}" var="ittag">
                 <td class="timetabletd">
                     <div class="rahmentd">
 
@@ -32,12 +32,22 @@
                                     <div class="fach" style="top: ${(itterm.starttime-6)*20}px; height: ${itterm.duration*20}px;">${it.kuerzel}</div>
 
 
-                    </g:if>
-                </g:each>
-            </g:each>
+                                </g:if>
+                            </g:each>
+                        </g:each>
+
+                        <g:each in="${untitled3.User.findByLoginname(session.user.loginname).likes}">
+                            <g:each in="${it.term}" var="itterm">
+                                <g:if test="${itterm.dayOfWeek == ittag || itterm.dayOfWeek == ittag.substring(0,2)}">
+
+                                    <div class="fach" style="top: ${(itterm.starttime-6)*20}px; height: ${itterm.duration*20}px;">${it.likename}</div>
+
+                                </g:if>
+                            </g:each>
+                        </g:each>
 
             </g:each>
-            <td></td>
+
         </tr>
 
 

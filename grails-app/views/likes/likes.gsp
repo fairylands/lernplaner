@@ -14,10 +14,8 @@
     <tr>
         <td class="tablehead"> Like </td>
         <td class="tablehead"> Priorit&auml;t</td>
-        <td class="tablehead"> Wochentag</td>
-        <td class="tablehead"> Von </td>
-        <td class="tablehead"> Bis </td>
-        <td class="tablehead"> Von </td>
+        <td class="tablehead" style="width: 150px"> Zeit</td>
+        <td class="tablehead">  </td>
 
     </tr>
 
@@ -25,16 +23,13 @@
     <tr>
         <td>${it.likename}</td>
         <td>${it.priority}</td>
-        <td>${it.term.dayOfWeek}</td>
-        <td>${it.term.starttime}</td>
-        <td>${it.term.endtime}</td>
-
+        <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek}, ${t.starttime} - ${t.endtime} <br> </g:each></td>
         <td>
-            <g:link controller="likes" action="" id="${it.id}">
+            <g:link controller="likes" action="updateLikes" params="[name: it.likename]">
                 <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
             </g:link>
 
-            <input type="image" src="../images/loeschen.png" value="LÃƒÆ’Ã‚Â¶schen" onclick="if(confirm('LÃƒÆ’Ã‚Â¶schen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="timetable" action="deletesubject" id="${it.id}"/>'}"/>
+            <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="likes" action="deleteLike" params="[name: it.likename]"/>'}"/>
 
         </td>
 
@@ -60,8 +55,8 @@
         <td> <g:field name="likename" type="text" required=""/> </td>
         <td> <g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']}" required=""/> </td>
         <td> <g:select name="priority" from="${1..10}" required=""/> </td>
-        <td> <input name="starttime" type="number" step="0.25" min="0" max="23.45" required=""/> </td>
-        <td> <input name="duration" type="number" step="0.25" min="0.25" required=""/> </td>
+        <td> <g:select name="starttime" from="${starttimesList}" required=""/> </td>
+        <td> <g:select name="duration" from="${durationsList}" required=""/> </td>
     </tr>
     <tr>
         <td>  </td>
