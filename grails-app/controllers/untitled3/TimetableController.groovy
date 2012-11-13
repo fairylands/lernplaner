@@ -95,7 +95,7 @@ class TimetableController {
 
         for (i=0; i < params.dayOfWeek.size(); i++){
             println(params.dayOfWeek.size())
-            term = new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i], endtime: params.endtime[i], duration: params.duration[i] )
+            term = new Term(dayOfWeek: params.dayOfWeek[i], starttime: params.starttime[i].toFloat(), endtime: params.endtime[i].toFloat(), duration: params.duration[i].toFloat() )
             subject.addToTerm(term)
         }
 

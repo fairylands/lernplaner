@@ -57,7 +57,7 @@
         <input type="button" value="Abbrechen" onclick="if(confirm('Abbrechen und alle Eingaben verlieren?')){ document.location.href='<g:createLink controller="timetable" action="timetable"/>'}"/>
 
         </div>
-        <div id="termtable">
+        <div id="zeiten">
 
             <table class="table">
                 <h1> Zeiten eintragen: </h1>

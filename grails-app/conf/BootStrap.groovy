@@ -5,16 +5,16 @@ class BootStrap {
     def init = { servletContext ->
 
         //Terms:
-        def mo1 = new Term(dayOfWeek: "Mo", starttime: 8.15, endtime: 10.45, duration: 2.5)
-        def mo2 = new Term(dayOfWeek: "Mo", starttime: 11.00, endtime: 14.45, duration: 3.45)
-        def di1 = new Term(dayOfWeek: "Di", starttime: 8.45, endtime: 11.45, duration: 3)
-        def di2 = new Term(dayOfWeek: "Di", starttime: 12.30, endtime: 15.00, duration: 2.5)
-        def mi1 = new Term(dayOfWeek: "Mi", starttime: 9.15, endtime: 12.30, duration: 3.25)
-        def mi2 = new Term(dayOfWeek: "Mi", starttime: 13.00, endtime: 14.30, duration: 1.5)
-        def do1 = new Term(dayOfWeek: "Do", starttime: 8.45, endtime: 11.45, duration: 3)
-        def do2 = new Term(dayOfWeek: "Do", starttime: 13.00, endtime: 16.30, duration: 3.5)
-        def fr1 = new Term(dayOfWeek: "Fr", starttime: 8.30, endtime: 10.00, duration: 1.5)
-        def fr2 = new Term(dayOfWeek: "Fr", starttime: 10.15, endtime: 13.30, duration: 3.25)
+        def mo1 = new Term(dayOfWeek: "Mo", starttime: 8.25, endtime: 10.75, duration: 2.5)
+        def mo2 = new Term(dayOfWeek: "Mo", starttime: 11.00, endtime: 14.75, duration: 3.75)
+        def di1 = new Term(dayOfWeek: "Di", starttime: 8.75, endtime: 11.75, duration: 3)
+        def di2 = new Term(dayOfWeek: "Di", starttime: 12.5, endtime: 15.00, duration: 2.5)
+        def mi1 = new Term(dayOfWeek: "Mi", starttime: 9.25, endtime: 12.5, duration: 3.25)
+        def mi2 = new Term(dayOfWeek: "Mi", starttime: 13.00, endtime: 14.5, duration: 1.5)
+        def do1 = new Term(dayOfWeek: "Do", starttime: 8.75, endtime: 11.75, duration: 3)
+        def do2 = new Term(dayOfWeek: "Do", starttime: 13.00, endtime: 16.5, duration: 3.5)
+        def fr1 = new Term(dayOfWeek: "Fr", starttime: 8.50, endtime: 10.00, duration: 1.5)
+        def fr2 = new Term(dayOfWeek: "Fr", starttime: 10.25, endtime: 13.5, duration: 3.25)
 
         def sp = new Term(dayOfWeek: "Fr", starttime: 18.00, endtime: 20.00, duration: 2)
         sp.save(flush: true)
@@ -42,9 +42,9 @@ class BootStrap {
         def nt = new Subject(subjectname: "Netztechnik",  kuerzel: "NT", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
         nt.save(flush: true)
         do1.subject = nt
-        def ma = new Subject(subjectname: "Mathe",  kuerzel: "MA", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do1])
+        def ma = new Subject(subjectname: "Mathe",  kuerzel: "MA", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [do2])
         ma.save(flush: true)
-        do1.subject = ma
+        do2.subject = ma
         def we = new Subject(subjectname: "Webengineering", kuerzel: "WE", typeOfExam: "Prüfung", hours: 100, selfstudy: 100, modul: "TTT", creditpoints: 42, term: [fr2])
         we.save(flush: true)
         fr2.subject = we

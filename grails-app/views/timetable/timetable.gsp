@@ -33,7 +33,7 @@ Tabelle mit Stundenplan
                             <g:each in="${it.term}" var="itterm">
                                 <g:if test="${itterm.dayOfWeek == ittag || itterm.dayOfWeek == ittag.substring(0,2)}">
 
-                                <div class="fach" style="">${it.kuerzel}</div>
+                                <div class="fach" style="top: ${(itterm.starttime-6)*20}px; height: ${itterm.duration*20}px;">${it.kuerzel}</div>
 
 
                             </g:if>
