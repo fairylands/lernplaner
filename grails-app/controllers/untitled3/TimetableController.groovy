@@ -2,6 +2,10 @@ package untitled3
 
 class TimetableController {
 
+
+
+    LernplanService lernplanService
+
     def beforeInterceptor = {
 
         if (session.user == null) {
@@ -34,8 +38,6 @@ class TimetableController {
     def editsubject(int id) {
 
         [subject: Subject.get(id)]
-
-
 
     }
 
@@ -98,7 +100,7 @@ class TimetableController {
         def endtime = request.getParameterValues('endtime')
 
         for (i=0; i < daysOfWeek.length; i++){
-            term = new Term(dayOfWeek: daysOfWeek[i], starttime: starttime[i].toFloat(), endtime: endtime[i].toFloat(), duration: endtime[i].toFloat()-starttime[i].toFloat() )
+            term = new Term(dayOfWeek: daysOfWeek[i], starttime: lernplanService.zeitInZahl(starttime[i].toFloat()), endtime: lernplanService.zeitInZahl(endtime[i].toFloat()), duration: endtime[i].toFloat()-starttime[i].toFloat() )
             subject.addToTerm(term)
         }
 
