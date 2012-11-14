@@ -69,7 +69,7 @@ class LikesController {
         } else {
 
             def tmpLike = new Likes(likename: params.likename, priority: params.priority, term: [tmpTerm])
-            tmpLike.save()           //Laesst sich nicht flushen
+            tmpLike.save(flush: true)
             curUser.addToLikes(tmpLike)
         }
 
@@ -80,8 +80,9 @@ class LikesController {
 
     def deleteLike () {
 
-        def tmpLike = Likes.findByLikename(params.name)
+        //def tmpLike = Likes.findByLikename(params.name)
         def curUser = User.findByLoginname(session.user.loginname)
+        def tmpLike = curUser.likes.find { it.likename == params.name }
 
         curUser.removeFromLikes(tmpLike)
 
@@ -104,6 +105,23 @@ class LikesController {
 
     def changeterms () {
 
+        def curUser = User.findByLoginname(session.user.loginname)
+        def tmpList = curUser.likes
 
+        def times = [], durations = []
+
+        for (int i = 6; i<24; i++) {
+
+            times.add(i + ".00")
+            times.add(i + ".15")
+            times.add(i + ".30")
+            times.add(i + ".45")
+        }
+
+        times.add("24.00")
+
+        for (float i = 0.25; i<=8; i+=0.25) {durations.add(i)}
+
+        [userlikesList: tmpList, starttimesList: times , durationsList: durations]
     }
 }
