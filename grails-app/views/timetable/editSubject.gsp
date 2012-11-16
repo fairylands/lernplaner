@@ -69,20 +69,82 @@
                     <td class="tablehead breitezeitentd"></td>
                 </tr>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <g:each in="${subject.term}">
                     <tr>
                         <td><g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']}" class="eingabefeldwochentag" required=""/></td>
                         <td><g:field name="starttime" type="text" class="eingabefeld" value="${it.getStarttimeConverted()}"/></td>
                         <td><g:field name="endtime" type="text" class="eingabefeld" value="${it.getEndtimeConverted()}"/></td>
+                        <td class="breitezeitentd">
+                            <g:if test="${subject.term.first() != it}">
+                                <a onclick="minusZeile(this)">
+                                    <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild" title="Zeile louml;schen"/>
+                                </a>
+                            </g:if>
+                        </td>
 
-                        <td class="breitezeitentd"></td>
-                    </tr>
-                </g:each>
+
+                            </tr>
+                        </g:each>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </table>
+
+
+
+
+
+
 
         <br>
         <a onclick="plusZeile()">
-            <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
+            <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild" title="Zeile hinzuf&uuml;gen"/>
         </a>
         </div>
     </g:form>
