@@ -69,25 +69,6 @@
                     <td class="tablehead breitezeitentd"></td>
                 </tr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <g:each in="${subject.term}">
                     <tr>
                         <td><g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']}" class="eingabefeldwochentag" required=""/></td>
@@ -105,42 +86,7 @@
                             </tr>
                         </g:each>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </table>
-
-
-
-
-
-
 
         <br>
         <a onclick="plusZeile()">

@@ -70,6 +70,8 @@ class Term {
             return time
         }
 
+        return time
+
 
 
     }
