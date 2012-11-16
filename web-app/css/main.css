@@ -162,6 +162,14 @@ h2 {
 
 }
 
+.rahmentdlernplan{
+    position: relative;
+    height: 380px;
+    width: 100%;
+    background-image: url("/untitled3/images/lplanbackground.png") ;
+
+}
+
 .fach{
     position: absolute;
 

@@ -30,7 +30,7 @@
 
             <g:each in="${["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]}" var="ittag">
                 <td class="timetabletd">
-                    <div class="rahmentd">
+                    <div class="rahmentdlernplan">
 
                         <g:each in="${untitled3.Subject.list()}">
                             <g:each in="${it.term}" var="itterm">
