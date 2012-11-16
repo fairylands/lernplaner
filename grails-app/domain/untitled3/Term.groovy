@@ -21,7 +21,7 @@ class Term {
     def getStarttimeConverted() {
         def time = starttime.intValue() + ((starttime - starttime.intValue())*0.6)
 
-        time = time.toString()
+        time = time.round(2).toString()
 
         return zeitabfrage(time)
 
@@ -31,7 +31,7 @@ class Term {
     def getEndtimeConverted() {
         def time = endtime.intValue() + ((endtime - endtime.intValue())*0.6)
 
-        time = time.toString()
+        time = time.round(2).toString()
 
        return zeitabfrage(time)
 

@@ -10,11 +10,19 @@
 
 <table class="table">
 <h1> Zeiten f&uuml;r "${params.name}" &auml;ndern: </h1>
-<g:each in="${untitled3.Likes.findByLikename(params.name).term}">
+
     <tr>
-        <td> <g:select name="dayOfWeek" from="${['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']}" value="${it.dayOfWeek}" required=""/> </td>
-        <td> <g:select name="starttime" from="${starttimesList}" value="${it.starttime}" required=""/> </td>
-        <td> <g:select name="duration" from="${durationsList}" value="${it.duration}" required=""/> </td>
+        <td class="tablehead"> Tag </td>
+        <td class="tablehead"> Start </td>
+        <td class="tablehead"> Dauer </td>
+        <td class="breitezeitentd">  </td>
+    </tr>
+
+    <g:each in="${untitled3.Likes.findByLikename(params.name).term}">
+    <tr>
+        <td> ${it.dayOfWeek} </td>
+        <td> ${it.getStarttimeConverted()} </td>
+        <td> ${it.duration} </td>
 
         <td class="breitezeitentd">
             <g:link controller="likes" action="removeTerm" params="[likename: params.name, termId: it.id]">

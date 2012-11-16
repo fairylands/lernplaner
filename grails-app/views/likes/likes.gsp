@@ -23,7 +23,7 @@
     <tr>
         <td>${it.likename}</td>
         <td>${it.priority}</td>
-        <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek},  ${t.starttime} - ${t.endtime}  <br> </g:each></td>
+        <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek},  ${t.getStarttimeConverted()} - ${t.getEndtimeConverted()}  <br> </g:each></td>
         <td>
             <g:link controller="likes" action="changeterms" params="[name: it.likename]">
                 <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" title="Zeiten bearbeiten" alt="bild"/>

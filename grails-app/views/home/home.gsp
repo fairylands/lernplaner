@@ -34,9 +34,7 @@
         <tr>
             <td>${it.likename}</td>
             <td>${it.priority}</td>
-            <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek},
-                ${t.starttime}<g:if test="${(t.starttime%1) == 0 || (t.starttime%1) == 0.3 }">0</g:if>
-                - ${t.endtime}<g:if test="${(t.endtime%1) == 0 || (t.endtime%1) == 0.3 }">0</g:if>  <br> </g:each></td>
+            <td><g:each var="t" in="${it.term}"> ${t.dayOfWeek}, ${ t.getStarttimeConverted() } - ${t.getEndtimeConverted() } <br></g:each></td>
         </tr>
 
     </g:each>

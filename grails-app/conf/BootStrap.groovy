@@ -18,9 +18,9 @@ class BootStrap {
 
         def sp = new Term(dayOfWeek: "Fr", starttime: 18.00, endtime: 20.00, duration: 2)
         sp.save(flush: true)
-        def wga = new Term(dayOfWeek: "Mi", starttime: 17.15, endtime: 18.45, duration: 1.5)
+        def wga = new Term(dayOfWeek: "Mi", starttime: 17.25, endtime: 18.75, duration: 1.5)
         wga.save(flush: true)
-        def nh = new Term(dayOfWeek: "Mi", starttime: 17.15, endtime: 18.45, duration: 1.5)
+        def nh = new Term(dayOfWeek: "Mi", starttime: 17.25, endtime: 18.75, duration: 1.5)
         nh.save(flush: true)
 
         //Subjects:

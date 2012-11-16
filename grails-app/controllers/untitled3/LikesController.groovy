@@ -1,9 +1,13 @@
 package untitled3
 
+import grails.converters.XML
+
 
 class LikesController {
 
     static scaffold = true
+
+    LernplanService lernplanService
 
     def beforeInterceptor = {
 
@@ -38,26 +42,23 @@ class LikesController {
 
         for (float i = 0.25; i<=8; i+=0.25) {durations.add(i)}
 
-        [userlikesList: tmpList, starttimesList: times , durationsList: durations]
+        withFormat {
+
+            html { [userlikesList: tmpList, starttimesList: times , durationsList: durations] }
+            xml { render([userlikesList: tmpList] as XML) }
+        }
     }
 
     def saveLike = {
 
         def curUser =  User.findByLoginname(session.user.loginname)
 
-        def double end
+        def float start = params.getFloat('starttime').round(2), end
 
-        end = params.getDouble('starttime') + (params.getDouble('duration') - (params.getDouble('duration')%1))
+        start = lernplanService.zeitInZahl(start)
+        end = start +  params.getDouble('duration')
 
-        switch (params.getDouble('duration')%1) {
-
-            case 0.25: end += 0.15; break;
-            case 0.5: end += 0.30; break;
-            case 0.75: end += 0.45; break;
-        }
-
-
-        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: end, duration: params.getDouble('duration'))
+        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: start, endtime: end, duration: params.getDouble('duration'))
             tmpTerm.save(flush: true)
 
         if (curUser.likes.likename.contains(params.likename)) {
@@ -73,9 +74,11 @@ class LikesController {
             curUser.addToLikes(tmpLike)
         }
 
+        withFormat {
 
-        redirect (action: 'likes')
-
+            html { redirect (action: 'likes') }
+            xml { render([success: true] as XML) }
+        }
     }
 
     def deleteLike () {
@@ -85,20 +88,17 @@ class LikesController {
 
         curUser.removeFromLikes(tmpLike)
 
-        redirect(action: 'likes')
+        withFormat {
+
+            html { redirect(action: 'likes') }
+            xml { render([success: true] as XML) }
+        }
     }
 
-    def changeLike () {
+    //def changeLike () {
 
-        redirect(uri: '/likes/likes?likename=' + params.name)
-    }
-
-    def checkFreeTime() {
-
-        def boolean time = true
-
-        return time
-    }
+    //    redirect(uri: '/likes/likes?likename=' + params.name)
+    //}
 
     def changeterms () {
 
@@ -123,24 +123,23 @@ class LikesController {
 
         def curUser = User.findByLoginname(session.user.loginname)
         def curLike =  curUser.likes.find {it.likename == params.likename}
+        def float start = params.getFloat('starttime').round(2), end
 
-        def double end = params.getDouble('starttime') + (params.getDouble('duration') - (params.getDouble('duration')%1))
+        start = lernplanService.zeitInZahl(start)
+        end = start +  params.getDouble('duration')
 
-        switch (params.getDouble('duration')%1) {
-
-            case 0.25: end += 0.15; break;
-            case 0.5: end += 0.30; break;
-            case 0.75: end += 0.45; break;
-        }
-
-        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: end, duration: params.getDouble('duration'))
+        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: start, endtime: end, duration: params.getDouble('duration'))
 
         tmpTerm.save(flush: true)
 
         curLike.addToTerm(tmpTerm)
 
+        withFormat {
 
-        redirect (action: 'changeterms', params: [name: params.likename])
+            html { redirect (action: 'changeterms', params: [name: params.likename]) }
+            xml { render([success: true] as XML) }
+        }
+
     }
 
     def removeTerm() {
@@ -151,6 +150,6 @@ class LikesController {
 
         curLike.removeFromTerm(tmpTerm)
 
-        redirect(action: 'changeterms')
+        redirect(action: 'changeterms', params: [name: params.likename])
     }
 }
