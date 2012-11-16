@@ -18,9 +18,5 @@ function plusZeile (){
 }
 
 function minusZeile(zeile){
-
      $(zeile).parents("tr").remove()
-
-
-
 }

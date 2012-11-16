@@ -21,15 +21,25 @@ class Term {
     def getStarttimeConverted() {
         def time = starttime.intValue() + ((starttime - starttime.intValue())*0.6)
 
-        return time
+        time = time.toString()
+
+        return zeitabfrage(time)
+
+
     }
 
     def getEndtimeConverted() {
         def time = endtime.intValue() + ((endtime - endtime.intValue())*0.6)
 
-        return time
-        /*
         time = time.toString()
+
+       return zeitabfrage(time)
+
+
+
+    }
+
+    def zeitabfrage(String time){
 
         if(time.length()==5){
             return time
@@ -44,13 +54,23 @@ class Term {
                 return time
             }
         }
-        else if(){
+        else if(time.length() == 3){
 
-
-
-
+            if(time[2]== '.'){
+                time = time + '00'
+                return time
+            }
+            else if(time[1]== '.'){
+                time = time + '0'
+                return time
+            }
         }
-        */
+        else if(time.length() == 2){
+            time = time + '.00'
+            return time
+        }
+
+
 
     }
 }
