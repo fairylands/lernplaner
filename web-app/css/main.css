@@ -172,6 +172,8 @@ h2 {
 
 .fach{
     position: absolute;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #B0B0B0;
 
     width:100%;
     background-color: rgba(192,192,192,0.7);
