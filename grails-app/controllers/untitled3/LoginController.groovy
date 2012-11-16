@@ -100,7 +100,7 @@ class LoginController {
 
         } else {
 
-            def tmpCourse = new Course(coursename: var.cname)
+            def tmpCourse = new Course(coursename: var.cname, beginnTheoriephase: var.semesterbeginn)
                     tmpCourse.save(flush: true)
 
             if (var.sp1) {

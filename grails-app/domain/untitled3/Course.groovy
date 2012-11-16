@@ -4,6 +4,8 @@ class Course {
 
     String coursename
 
+    Date beginnTheoriephase
+
     static hasMany = [subject:Subject]
 
     User speaker1

@@ -24,7 +24,7 @@
     </h2>
 
     <tr>
-        <td class="tablehead"> Like </td>
+        <td class="tablehead"> Aktivit&auml;ten </td>
         <td class="tablehead"> Priorit&auml;t</td>
         <td class="tablehead" style="width: 150px"> Zeit</td>
 

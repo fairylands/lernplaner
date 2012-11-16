@@ -9,10 +9,10 @@
 
 <table class="table">
 
-<h1> Meine Likes: </h1>
+<h1> Meine Aktivitäten: </h1>
 
     <tr>
-        <td class="tablehead"> Like </td>
+        <td class="tablehead"> Aktivit&auml;ten </td>
         <td class="tablehead"> Priorit&auml;t</td>
         <td class="tablehead" style="width: 150px"> Zeit</td>
         <td class="tablehead">  </td>
@@ -39,7 +39,7 @@
 
     <br> <br>
 
-<h3> Neues Like eintragen: </h3>
+<h3> Neue Aktivit&auml;t eintragen: </h3>
 
 <g:form controller="likes" action="saveLike">
 <table>

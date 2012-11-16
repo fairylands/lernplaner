@@ -13,7 +13,7 @@
 <body>
 
 <div id="timetable">
-Tabelle mit Stundenplan
+<h3>Stundenplan</h3>
     <table class="table">
         <tr>
 
@@ -56,7 +56,13 @@ Tabelle mit Stundenplan
 
 </div>
 <div id="termtable">
-Tabelle mit Fachübersicht ${flash.message}
+<h3>Fachübersicht</h3>
+<g:if test="${flash.message}">
+    <br>
+    <h4>${flash.message}</h4>
+
+</g:if>
+
 
     <table class="table">
         <tr>
@@ -77,10 +83,10 @@ Tabelle mit Fachübersicht ${flash.message}
 
             <td>
                 <g:link controller="timetable" action="editsubject" id="${it.id}">
-                    <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild"/>
+                    <img src="${resource(dir: 'images', file: 'bearbeiten.png')}" alt="bild" title="Fach bearbeiten"/>
                 </g:link>
 
-                <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="timetable" action="deletesubject" id="${it.id}"/>'}"/>
+                <input type="image" src="../images/loeschen.png" value="Löschen" onclick="if(confirm('Löschen und alle Inhalte verlieren?')){ document.location.href='<g:createLink controller="timetable" action="deletesubject" id="${it.id}"/>'}" title="Fach l&ouml;schen"/>
 
             </td>
 
@@ -94,7 +100,7 @@ Tabelle mit Fachübersicht ${flash.message}
 
             <td>
                 <g:link controller="timetable" action="insertnewsubject">
-                    <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
+                    <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild" title="Fach hinzuf&uuml;gen"/>
                 </g:link>
              </td>
 

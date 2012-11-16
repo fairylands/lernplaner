@@ -25,7 +25,7 @@
     <tr>  <td> Passwort Wiederholen </td>    <td> <input type="password" name="pwd2"  required=""/> </td>  </tr>
     <tr>  <td> Kursname </td>    <td> <g:select name="coursen" from="${untitled3.Course.list()}"/>
                                       <g:link controller="login" action="insertNewCourse">
-                                        <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
+                                        <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild" title="Kurs hinzuf&uuml;gen"/>
                                       </g:link>
                                       </td></tr>
 

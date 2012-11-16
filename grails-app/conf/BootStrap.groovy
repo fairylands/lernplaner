@@ -91,7 +91,7 @@ class BootStrap {
         we.professor = klei
 
         //Course:
-        def tinf = new Course(coursename: "TINF11B", subject: [ra, bs, db, swe, fsa, nt, ma, we])
+        def tinf = new Course(coursename: "TINF11B", beginnTheoriephase: new Date(350714925187200) ,subject: [ra, bs, db, swe, fsa, nt, ma, we])
         tinf.save(flush: true)
 
         //Likes:
