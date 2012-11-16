@@ -9,11 +9,12 @@ class Term {
 
 
 
-    static belongsTo = [subject: Subject]
+    static belongsTo = [subject: Subject, term: Term]
 
     static constraints = {
 
-        subject(nullable: true) //Weil es ja auch Terms gibt, die zu einem Like gehören
+        subject nullable: true //Weil es ja auch Terms gibt, die zu einem Like gehören
+        term nullable: true
     }
 
 

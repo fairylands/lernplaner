@@ -80,13 +80,10 @@ class LikesController {
 
     def deleteLike () {
 
-        //def tmpLike = Likes.findByLikename(params.name)
         def curUser = User.findByLoginname(session.user.loginname)
         def tmpLike = curUser.likes.find { it.likename == params.name }
 
         curUser.removeFromLikes(tmpLike)
-
-        flash.message = "Like entfernt."
 
         redirect(action: 'likes')
     }
@@ -105,9 +102,6 @@ class LikesController {
 
     def changeterms () {
 
-        def curUser = User.findByLoginname(session.user.loginname)
-        def tmpList = curUser.likes
-
         def times = [], durations = []
 
         for (int i = 6; i<24; i++) {
@@ -122,6 +116,41 @@ class LikesController {
 
         for (float i = 0.25; i<=8; i+=0.25) {durations.add(i)}
 
-        [userlikesList: tmpList, starttimesList: times , durationsList: durations]
+        [starttimesList: times , durationsList: durations]
+    }
+
+    def addTerm() {
+
+        def curUser = User.findByLoginname(session.user.loginname)
+        def curLike =  curUser.likes.find {it.likename == params.likename}
+
+        def double end = params.getDouble('starttime') + (params.getDouble('duration') - (params.getDouble('duration')%1))
+
+        switch (params.getDouble('duration')%1) {
+
+            case 0.25: end += 0.15; break;
+            case 0.5: end += 0.30; break;
+            case 0.75: end += 0.45; break;
+        }
+
+        def tmpTerm = new Term(dayOfWeek: params.dayOfWeek, starttime: params.getDouble('starttime'), endtime: end, duration: params.getDouble('duration'))
+
+        tmpTerm.save(flush: true)
+
+        curLike.addToTerm(tmpTerm)
+
+
+        redirect (action: 'changeterms', params: [name: params.likename])
+    }
+
+    def removeTerm() {
+
+        def curUser = User.findByLoginname(session.user.loginname)
+        def curLike =  curUser.likes.find {it.likename == params.likename}
+        def tmpTerm = curLike.term.find {it.id == params.termId.toLong()}
+
+        curLike.removeFromTerm(tmpTerm)
+
+        redirect(action: 'changeterms')
     }
 }
