@@ -80,7 +80,7 @@
 
             <br>
             <a onclick="plusZeile()">
-                <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild"/>
+                <img src="${resource(dir: 'images', file: 'plus.png')}" alt="bild" title="Zeile hinzuf&uuml;gen"/>
             </a>
         </div>
     </g:form>

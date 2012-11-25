@@ -77,7 +77,7 @@
                         <td class="breitezeitentd">
                             <g:if test="${subject.term.first() != it}">
                                 <a onclick="minusZeile(this)">
-                                    <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild" title="Zeile louml;schen"/>
+                                    <img src="${resource(dir: 'images', file: 'loeschen.png')}" alt="bild" title="Zeile l&ouml;schen"/>
                                 </a>
                             </g:if>
                         </td>

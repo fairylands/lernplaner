@@ -11,8 +11,6 @@
 
 <body>
 
- HOME <br> <br>
-
 <p>Hallo ${session.user.prename}!</p>
 
 <table class="table">
@@ -40,6 +38,9 @@
     </g:each>
 </table>
 
+<br><br>
+    Kurs: <b>${session.user.course.coursename}</b>, Kurssprecher1: <b>${session.user.course.speaker1}</b>,
+    Kurssprecher2: <b>${session.user.course.speaker2}</b>
 
 </body>
 </html>
